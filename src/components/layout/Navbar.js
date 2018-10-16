@@ -1,18 +1,20 @@
-// у этого компонента нет стейта, поэтому он будет функциональный 
+// у этого компонента нет стейта, поэтому он будет функциональный
 import React from 'react'
 import { Link } from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 
-const Navbar = () =>{
+const Navbar = () => {
     return (
         <nav className="nav-wrapper grey darken-3">
             <div className="container">
-                <Link to="/" className="brand-logo">MarioPlan</Link>
+                <Link to="/" className="brand-logo">
+                    MarioPlan
+                </Link>
                 <SignedInLinks />
                 <SignedOutLinks />
             </div>
-        </nav>   
+        </nav>
     )
 }
 

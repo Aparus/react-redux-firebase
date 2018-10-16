@@ -1,6 +1,6 @@
-// функциональный компонент 
+// функциональный компонент
 
-import React from "react";
+import React from 'react'
 
 const Notifications = () => {
     return (

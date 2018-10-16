@@ -1,13 +1,13 @@
-// State, lifecycle => class component 
-// слева будет идти список проектов, справа - уведомления 
+// State, lifecycle => class component
+// слева будет идти список проектов, справа - уведомления
 // ProjectList || Notifications
 // ============ || =============
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import ProjectList from '../projects/ProjectList'
 import Notifications from './Notifications'
 
 class Dashboard extends Component {
-    render () {
+    render() {
         return (
             <div className="dashboard container">
                 <div className="row">
@@ -15,7 +15,7 @@ class Dashboard extends Component {
                         <ProjectList />
                     </div>
                     <div className="col s12 m5 offset-m1">
-                        <Notifications /> 
+                        <Notifications />
                     </div>
                 </div>
             </div>
