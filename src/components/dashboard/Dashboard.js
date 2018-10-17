@@ -5,14 +5,16 @@
 import React, { Component } from 'react'
 import ProjectList from '../projects/ProjectList'
 import Notifications from './Notifications'
+import { connect } from 'react-redux' // соединяет компонент со store
 
 class Dashboard extends Component {
     render() {
+        const { projects } = this.props
         return (
             <div className="dashboard container">
                 <div className="row">
                     <div className="col s12 m6">
-                        <ProjectList />
+                        <ProjectList projects={projects} />
                     </div>
                     <div className="col s12 m5 offset-m1">
                         <Notifications />
@@ -23,4 +25,12 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard
+const mapStateToProps = state => {
+    return {
+        projects: state.project.projects,
+    }
+}
+
+export default connect(mapStateToProps)(Dashboard)
+// мы превратили Dashboard в контейнер-компонент,
+// он забирает данные state из store, превращает их в props и спускает их нижестоящим компонентам
