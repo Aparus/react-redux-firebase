@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import rootReducer from './store/reducers/rootReducer'
 import { Provider } from 'react-redux'
 // <Provider> делает store доступным из приложения App.
-const store = createStore(rootReducer)
+import thunk from 'redux-thunk'
+const store = createStore(rootReducer, applyMiddleware(thunk))
+// middleware добавляет функционал для store,
+// thunk в данном случае добавляет возможность в экшенах выполнять асинхронные запросы
+// если бы мы не добавили эту мидлвару, то экшены выстреливались бы моментально, не дожидаясь асинхр.ответов
 
 ReactDOM.render(
     <Provider store={store}>
